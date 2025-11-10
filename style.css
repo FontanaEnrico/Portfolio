@@ -220,39 +220,3 @@ header{
     transform: translateY(0);
   }
 }
-@media (max-width: 768px) {
-  .main-menu {
-    flex-direction: column;
-  }
-  
-  .main-menu li {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .Testo p {
-    margin: 0 5% 30px 5%; /* più stretto sui telefoni */
-    font-size: 16px;
-  }
-
-  .Inizio {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .Inizio .Testi {
-    text-align: center;
-    margin: 20px 5% 50px 5%;
-  }
-
-  .Inizio .FotoProfilo_1 img {
-    width: 150%;
-    margin: 0 auto;
-  }
-
-  .Centro h3 {
-    max-width: 80%;
-    font-size: 22px;
-    margin-bottom: 50px;
-  }
-}
