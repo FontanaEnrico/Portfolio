@@ -1,0 +1,258 @@
+body {
+  background-color: black;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+
+  background-image: url('Sfondo.jpg');
+  background-size: cover;            
+  background-position: center;          
+  background-repeat: no-repeat;        
+  background-attachment: fixed;
+}
+header{
+	display:flex;
+  flex-direction: column;
+	margin: 0;
+	padding: 0;
+	justify-content: space-between;
+	align-items:center;
+	font-family: 'Helvetica', sans-serif;
+	color:#777;
+	text-transform: uppercase;
+}
+.main-menu a:hover,
+.main-menu .current{
+	list-style-type: none;
+	color: #00ffff;
+    transform: scale(1.1);
+}
+.main-menu{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.main-menu li {
+	display: inline-block;
+	margin-right: 50px;
+    margin-top: 20px;
+}
+.main-menu a {
+	text-decoration: none;
+	color: white;
+    font-size: 25px;
+    transition: transform 0.3s ease, color 0.2s ease;
+    display: inline-block;
+}
+.Formazione {
+	margin: 70px 100px 50px 100px;
+	padding: 20px;
+	background-color: #1a1a1a;
+	border-radius: 15px;
+	box-shadow: 0 0 15px #00ffff;
+}
+.Formazione ul {
+	list-style-type: square;
+	margin-left: 40px;
+	font-size: 20px;
+}
+.Formazione li {
+	margin-bottom: 15px;
+	list-style-type: disc;
+}
+.Esperienze {
+	margin: 70px 100px 50px 100px;
+	padding: 20px;
+	background-color: #1a1a1a;
+	border-radius: 15px;
+	box-shadow: 0 0 15px #00ffff;
+}
+.highlight {
+	color: #00ffff;
+	font-weight: bold;
+
+}
+.Esperienze ul {
+	list-style-type: square;
+	margin-left: 40px;
+	font-size: 20px;
+}
+.Esperienze li {
+	margin-bottom: 15px;
+	list-style-type: disc;
+}
+.Esperienze h2, .Formazione h2 {
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-size: 36px;
+	color: #00ffff;
+	text-shadow: 0 0 10px #00ffff;
+}
+.FotoProfilo_1 img{
+	display: flex;
+	width: 11%;
+	margin: 0 0 0 80px;
+	border-radius: 10%;
+	margin-top: 50px;
+}
+.FotoProfilo_2 img{
+  display: flex;
+  width: 350px;
+  height: 360px;
+  margin: 50px auto 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 40px #00ffff;
+}
+.Testo{
+  margin: 0px 200px 50px 200px;
+	padding: 10px;
+}
+.Testo p{
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0 100px 50px 100px;
+  text-align: justify;
+}
+.Testo h2 .Enrico{
+  text-align: left;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+.Testo h2{
+  text-align: left;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-left: 100px;
+  font-size: 36px;
+}
+.Inizio{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	margin-top: 50px;
+}
+.Inizio .Testi{
+  font-size: 18px;
+  text-align: left;
+  margin: 50px 100px 100px 10px;
+}
+.Inizio .Testi h1{
+  font-size: 300%;
+  color: #00ffff;
+  text-shadow: 0 0 10px#00ffff;
+}
+.Inizio .Testi h1,
+.Inizio .Testi h2 {
+  margin-top: 0;
+}
+.Inizio .FotoProfilo_1 img{
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Centro h3:hover{
+  list-style-type: none;
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.Centro{
+	display: flex;
+	justify-content: center;
+}
+.Centro h3{
+  display: flex;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 110px;
+  color: black;
+  text-shadow: 2px 2px 4px white;
+  background: #00ffff;
+  padding: 20px;
+  max-width: 300px;
+  border-radius: 40px;
+  box-shadow: 0px 4px 10px;
+  width: 250px;
+}
+.Fine{
+  display: flex;
+	justify-content: center;
+
+}
+.Fine .Social svg{
+  width: 70px;
+  color: #00ffff;
+}
+.Fine .Social svg:hover{
+  width: 70px;
+  cursor: pointer;
+  list-style-type: none;
+	color: #00ffff;
+  transform: scale(1.1);
+}
+.glow {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffff;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .main-menu {
+    flex-direction: column;
+  }
+  
+  .main-menu li {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .Testo p {
+    margin: 0 5% 30px 5%; /* più stretto sui telefoni */
+    font-size: 16px;
+  }
+
+  .Inizio {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .Inizio .Testi {
+    text-align: center;
+    margin: 20px 5% 50px 5%;
+  }
+
+  .Inizio .FotoProfilo_1 img {
+    width: 150%;
+    margin: 0 auto;
+  }
+
+  .Centro h3 {
+    max-width: 80%;
+    font-size: 22px;
+    margin-bottom: 50px;
+  }
+}
