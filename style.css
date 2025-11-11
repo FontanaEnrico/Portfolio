@@ -1,3 +1,7 @@
+/* -------------------------
+   STILI ORIGINALI (INVARIATI)
+----------------------------*/
+
 body {
   background-color: black;
   color: #fff;
@@ -7,11 +11,12 @@ body {
   animation: fadeInUp 0.8s forwards;
 
   background-image: url('Sfondo.jpg');
-  background-size: cover;            
-  background-position: center;          
-  background-repeat: no-repeat;        
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 header{
 	display:flex;
   flex-direction: column;
@@ -23,30 +28,35 @@ header{
 	color:#777;
 	text-transform: uppercase;
 }
+
 .main-menu a:hover,
 .main-menu .current{
 	list-style-type: none;
 	color: #00ffff;
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 .main-menu{
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
+
 .main-menu li {
 	display: inline-block;
 	margin-right: 50px;
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
 .main-menu a {
 	text-decoration: none;
 	color: white;
-    font-size: 25px;
-    transition: transform 0.3s ease, color 0.2s ease;
-    display: inline-block;
+  font-size: 25px;
+  transition: transform 0.3s ease, color 0.2s ease;
+  display: inline-block;
 }
+
 .Formazione {
 	margin: 70px 100px 50px 100px;
 	padding: 20px;
@@ -54,15 +64,18 @@ header{
 	border-radius: 15px;
 	box-shadow: 0 0 15px #00ffff;
 }
+
 .Formazione ul {
 	list-style-type: square;
 	margin-left: 40px;
 	font-size: 20px;
 }
+
 .Formazione li {
 	margin-bottom: 15px;
 	list-style-type: disc;
 }
+
 .Esperienze {
 	margin: 70px 100px 50px 100px;
 	padding: 20px;
@@ -70,20 +83,23 @@ header{
 	border-radius: 15px;
 	box-shadow: 0 0 15px #00ffff;
 }
+
 .highlight {
 	color: #00ffff;
 	font-weight: bold;
-
 }
+
 .Esperienze ul {
 	list-style-type: square;
 	margin-left: 40px;
 	font-size: 20px;
 }
+
 .Esperienze li {
 	margin-bottom: 15px;
 	list-style-type: disc;
 }
+
 .Esperienze h2, .Formazione h2 {
 	text-align: left;
 	margin-top: 50px;
@@ -92,6 +108,7 @@ header{
 	color: #00ffff;
 	text-shadow: 0 0 10px #00ffff;
 }
+
 .FotoProfilo_1 img{
 	display: flex;
 	width: 11%;
@@ -99,6 +116,7 @@ header{
 	border-radius: 10%;
 	margin-top: 50px;
 }
+
 .FotoProfilo_2 img{
   display: flex;
   width: 350px;
@@ -108,16 +126,19 @@ header{
   object-fit: cover;
   box-shadow: 0 0 40px #00ffff;
 }
+
 .Testo{
   margin: 0px 200px 50px 200px;
 	padding: 10px;
 }
+
 .Testo p{
   font-size: 20px;
   line-height: 1.6;
   margin: 0 100px 50px 100px;
   text-align: justify;
 }
+
 .Testo h2 .Enrico{
   text-align: left;
   margin-top: 100px;
@@ -126,6 +147,7 @@ header{
   color: #00ffff;
   text-shadow: 0 0 10px #00ffff;
 }
+
 .Testo h2{
   text-align: left;
   margin-top: 100px;
@@ -133,6 +155,7 @@ header{
   margin-left: 100px;
   font-size: 36px;
 }
+
 .Inizio{
 	display: flex;
 	align-items: center;
@@ -140,20 +163,24 @@ header{
 	gap: 40px;
 	margin-top: 50px;
 }
+
 .Inizio .Testi{
   font-size: 18px;
   text-align: left;
   margin: 50px 100px 100px 10px;
 }
+
 .Inizio .Testi h1{
   font-size: 300%;
   color: #00ffff;
   text-shadow: 0 0 10px#00ffff;
 }
+
 .Inizio .Testi h1,
 .Inizio .Testi h2 {
   margin-top: 0;
 }
+
 .Inizio .FotoProfilo_1 img{
   width: 300px;
   height: 300px;
@@ -161,16 +188,19 @@ header{
   border-radius: 50%;
   object-fit: cover;
 }
+
 .Centro h3:hover{
   list-style-type: none;
   color: white;
   transform: scale(1.1);
   cursor: pointer;
 }
+
 .Centro{
 	display: flex;
 	justify-content: center;
 }
+
 .Centro h3{
   display: flex;
   justify-content: center;
@@ -185,33 +215,30 @@ header{
   box-shadow: 0px 4px 10px;
   width: 250px;
 }
+
 .Fine{
   display: flex;
 	justify-content: center;
-
 }
+
 .Fine .Social svg{
   width: 70px;
   color: #00ffff;
 }
+
 .Fine .Social svg:hover{
-  width: 70px;
   cursor: pointer;
-  list-style-type: none;
-	color: #00ffff;
+  color: #00ffff;
   transform: scale(1.1);
 }
+
 .glow {
   animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
-  from {
-    text-shadow: 0 0 5px #00ffff;
-  }
-  to {
-    text-shadow: 0 0 20px #00ffff;
-  }
+  from { text-shadow: 0 0 5px #00ffff; }
+  to { text-shadow: 0 0 20px #00ffff; }
 }
 
 @keyframes fadeInUp {
@@ -220,3 +247,102 @@ header{
     transform: translateY(0);
   }
 }
+
+
+/* -------------------------------------
+   RESPONSIVE SENZA CAMBIARE IL LAYOUT
+--------------------------------------*/
+
+@media (max-width: 900px) {
+
+  .main-menu li {
+    margin-right: 25px;
+  }
+
+  .Testo {
+    margin: 0 40px 50px 40px;
+  }
+
+  .Testo p {
+    margin: 0 40px 40px 40px;
+    font-size: 18px;
+  }
+
+  .Formazione,
+  .Esperienze {
+    margin: 50px 40px;
+  }
+
+  .FotoProfilo_1 img {
+    width: 25%;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .main-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-menu li {
+    margin-right: 0;
+    margin-top: 15px;
+  }
+
+  .main-menu a {
+    font-size: 20px;
+  }
+
+  .Testo {
+    margin: 0 20px 40px 20px;
+  }
+
+  .Testo p {
+    margin: 0 15px 30px 15px;
+    font-size: 16px;
+  }
+
+  .Formazione,
+  .Esperienze {
+    margin: 40px 20px;
+  }
+
+  .FotoProfilo_1 img {
+    width: 40%;
+    margin-left: 10px;
+  }
+
+  .FotoProfilo_2 img {
+    width: 80%;
+    height: auto;
+  }
+
+  .Inizio {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .Inizio .Testi {
+    margin: 20px;
+    text-align: center;
+  }
+
+  .Inizio .FotoProfilo_1 img {
+    width: 60%;
+    height: auto;
+  }
+
+  .Centro h3 {
+    font-size: 22px;
+    width: 70%;
+    margin-bottom: 60px;
+  }
+
+  .Fine .Social svg {
+    width: 55px;
+  }
+}
+
