@@ -251,12 +251,12 @@ header{
 @media (max-width: 600px) {
 
   .main-menu .current {
-    display: flex;                  /* mette le voci in riga */
-    flex-wrap: wrap;                /* le voci vanno a capo se non ci stanno */
-    justify-content: center;        /* centra il menu */
-    gap: 10px;                      /* spazio orizzontale tra le voci */
-    list-style: none;               /* rimuove i puntini */
-    padding: 0 10px;                /* padding interno per evitare overflow */
+    display: flex;        
+    flex-wrap: wrap;           
+    justify-content: center;      
+    gap: 10px;                    
+    list-style: none;            
+    padding: 0 10px;                 
     margin: 0;
     box-sizing: border-box;  
   }
@@ -264,7 +264,7 @@ header{
   .main-menu li {
     margin-right: 0;
     margin-top: 22px;
-    margin-bottom: -10px; /* aumenta lo spazio tra le voci verticali */
+    margin-bottom: -10px;
   }
 
   .main-menu a {
@@ -282,21 +282,21 @@ header{
 
   .Formazione,
   .Esperienze {
-    width: 100%;            /* larghezza massima dello schermo */
-    max-width: 100%;        /* evita overflow */
-    margin: auto;         /* centra il box */
-    padding: 20px;          /* spazio interno */
-    box-sizing: border-box; /* include padding nella larghezza */
+    width: 100%;     
+    max-width: 100%;    
+    margin: auto;      
+    padding: 20px;          
+    box-sizing: border-box;
     margin-top: 30px;
   }
   .Formazione h2 {
-    max-width: 100%;          /* non superare il box */
-    overflow-wrap: break-word; /* va a capo se parola troppo lunga */
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   .Formazione ul,
   .Esperienze ul {
-    padding-left: 15px;  /* non troppo grande */
+    padding-left: 15px;
     margin: 0;
     padding-left: 1.5em;
     list-style-position: outside;
