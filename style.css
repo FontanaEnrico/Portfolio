@@ -5,6 +5,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
+  zoom: 1.4;
 
   background-image: url('Sfondo.jpg');
   background-size: cover;            
@@ -218,5 +219,130 @@ header{
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+
+  .main-menu li {
+    margin-right: 25px;
+  }
+
+  .Testo {
+    margin: 0 40px 50px 40px;
+  }
+
+  .Testo p {
+    margin: 0 40px 40px 40px;
+    font-size: 18px;
+  }
+
+  .Formazione,
+  .Esperienze {
+    margin: 50px 40px;
+  }
+
+  .FotoProfilo_1 img {
+    width: 25%;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .main-menu .current {
+    display: flex;                  /* mette le voci in riga */
+    flex-wrap: wrap;                /* le voci vanno a capo se non ci stanno */
+    justify-content: center;        /* centra il menu */
+    gap: 10px;                      /* spazio orizzontale tra le voci */
+    list-style: none;               /* rimuove i puntini */
+    padding: 0 10px;                /* padding interno per evitare overflow */
+    margin: 0;
+    box-sizing: border-box;  
+  }
+
+  .main-menu li {
+    margin-right: 0;
+    margin-top: 22px;
+    margin-bottom: -10px; /* aumenta lo spazio tra le voci verticali */
+  }
+
+  .main-menu a {
+    font-size: 14px;
+  }
+
+  .Testo {
+    margin: 0 20px 40px 20px;
+  }
+
+  .Testo p {
+    margin: 0 15px 30px 15px;
+    font-size: 16px;
+  }
+
+  .Formazione,
+  .Esperienze {
+    width: 100%;            /* larghezza massima dello schermo */
+    max-width: 100%;        /* evita overflow */
+    margin: auto;         /* centra il box */
+    padding: 20px;          /* spazio interno */
+    box-sizing: border-box; /* include padding nella larghezza */
+    margin-top: 30px;
+  }
+  .Formazione h2 {
+    max-width: 100%;          /* non superare il box */
+    overflow-wrap: break-word; /* va a capo se parola troppo lunga */
+  }
+
+  .Formazione ul,
+  .Esperienze ul {
+    padding-left: 15px;  /* non troppo grande */
+    margin: 0;
+    padding-left: 1.5em;
+    list-style-position: outside;
+  }
+
+  .Formazione li,
+  .Esperienze li {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .FotoProfilo_1 img{
+    width: 40%;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+
+  .FotoProfilo_2 img{
+    width: 60%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .Inizio {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .Inizio .Testi {
+    margin: 20px;
+    text-align: center;
+  }
+
+  .Inizio .FotoProfilo_1 img {
+    width: 60%;
+    height: auto;
+  }
+
+  .Centro h3 {
+    font-size: 22px;
+    width: 70%;
+    margin-bottom: 60px;
+  }
+
+  .Fine .Social svg {
+    width: 55px;
   }
 }
