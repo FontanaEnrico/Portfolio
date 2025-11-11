@@ -305,6 +305,7 @@ header{
   .Formazione h2 {
     max-width: 100%;
     overflow-wrap: break-word;
+    font-size: 28px;
   }
 
   .Formazione ul,
@@ -317,7 +318,7 @@ header{
 
   .Formazione li,
   .Esperienze li {
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 8px;
   }
 
@@ -365,6 +366,10 @@ header{
     text-align: justify;
     margin-bottom: 30px;
 }
+
+  .Inizio .Testi h1{
+    font-size: 48px;
+  }
 
   .Centro h3 {
     font-size: 22px;
