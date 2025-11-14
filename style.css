@@ -201,6 +201,13 @@ header{
 	color: #00ffff;
   transform: scale(1.1);
 }
+.Lavori{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 40px;
+}
 .glow {
   animation: glow 1.5s infinite alternate;
 }
@@ -396,5 +403,12 @@ header{
 
   .Fine .Social svg {
     width: 55px;
+  }
+
+  .Lavori h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
   }
 }
