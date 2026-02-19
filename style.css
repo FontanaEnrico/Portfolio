@@ -447,3 +447,10 @@ header {
     margin: 70px 100px 50px 100px;
   }
 }
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 20px;
+    zoom: 1.2;
+  }
+}
