@@ -166,7 +166,7 @@ header {
   font-size: clamp(15px, 2vw, 20px);
   line-height: 1.6;
   margin: 0 15px 30px 15px;
-  text-align: justify;
+  text-align: left;
 }
 
 .Formazione,
@@ -383,6 +383,7 @@ header {
 
   .Testo p {
     margin: 0 100px 50px 100px;
+    text-align: justify;
   }
 
   .Formazione,
@@ -438,6 +439,7 @@ header {
 
   .Testo p {
     margin: 0 100px 50px 100px;
+    text-align: justify;
   }
 
   .Formazione,
