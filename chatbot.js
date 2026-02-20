@@ -76,8 +76,8 @@ COMPORTAMENTO:
   const STORAGE_KEY = "portfolio_gemini_apikey";
 
   const MODELS = [
-    "gemini-2.5-flash",
     "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
   ];
 
   const styles = `
