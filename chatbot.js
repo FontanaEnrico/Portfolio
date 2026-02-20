@@ -25,13 +25,11 @@ COMPORTAMENTO:
 
   const STORAGE_KEY = "portfolio_gemini_apikey";
 
-  // Modelli aggiornati 2025 in ordine di fallback
   const MODELS = [
-    "gemini-2.5-flash",      // principale: funziona sul free tier
-    "gemini-2.5-flash-lite", // fallback: più leggero
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite", 
   ];
 
-  // ---- STILI ----
   const styles = `
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -335,8 +333,6 @@ COMPORTAMENTO:
     const container = document.createElement('div');
     container.id = 'cb-container';
     container.innerHTML = buildHTML();
-    // Appende a <html> e non a <body>: il body ha transform nell'animazione fadeInUp
-    // che rompe position:fixed su tutti i browser mobile
     document.documentElement.appendChild(container);
 
     const toggle    = document.getElementById('cb-toggle');
@@ -417,7 +413,6 @@ COMPORTAMENTO:
       if (t) t.remove();
     }
 
-    // Chiama Gemini con fallback automatico tra modelli
     async function callGemini(modelIndex) {
       if (modelIndex >= MODELS.length) return null;
       const model = MODELS[modelIndex];
@@ -432,7 +427,6 @@ COMPORTAMENTO:
         })
       });
       const data = await res.json();
-      // 404 = modello non disponibile su questo account → prova il prossimo
       if (res.status === 404) {
         console.warn(`[Chatbot] ${model} non disponibile, provo ${MODELS[modelIndex + 1] || 'nessun altro'}...`);
         return callGemini(modelIndex + 1);
