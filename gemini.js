@@ -68,15 +68,17 @@ Nel tempo libero esplora nuove tecnologie, lavora su progetti personali e miglio
 - Altri progetti: Coming Soon, nuovi lavori in arrivo.
 
 COMPORTAMENTO:
-- Comportati come un assistente virtuale, non come la persona stessa
 - Rispondi in modo conciso (max 3-4 frasi)
 - Usa i dati reali qui sopra per rispondere con precisione
 - Se ti chiedono qualcosa non presente, invita a visitare la sezione apposita o a contattare Enrico via LinkedIn
 - Sii sempre positivo e incoraggia i visitatori ad esplorare il portfolio`;
 
- const STORAGE_KEY = "portfolio_groq_apikey";
+  const STORAGE_KEY = "portfolio_gemini_apikey";
 
- const MODEL = "llama-3.1-8b-instant";
+  const MODELS = [
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+  ];
 
   const styles = `
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
@@ -341,11 +343,11 @@ COMPORTAMENTO:
 
         <div id="cb-api-panel">
           <p>
-            Per chattare, inserisci la tua <strong>LLAMA API Key</strong> gratuita.<br>
+            Per chattare, inserisci la tua <strong>Gemini API Key</strong> gratuita.<br>
             Viene salvata solo nel tuo browser, non condivisa con nessuno.
           </p>
           <div id="cb-api-steps">
-            <span>1.</span> Vai su <a href="https://console.groq.com/keys" target="_blank" style="color:#00ffff">console.groq.com/keys</a><br>
+            <span>1.</span> Vai su <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:#00ffff">aistudio.google.com/app/apikey</a><br>
             <span>2.</span> Accedi con Google → <strong style="color:rgba(255,255,255,0.6)">"Create API Key"</strong><br>
             <span>3.</span> Copia e incolla qui sotto
           </div>
@@ -366,7 +368,7 @@ COMPORTAMENTO:
             <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
           </button>
         </div>
-        <div id="cb-powered">POWERED BY <span>LLAMA 3.1 via GROQ</span> · FREE TIER</div>
+        <div id="cb-powered">POWERED BY <span>GEMINI 2.5 FLASH</span> · FREE TIER</div>
       </div>
 
       <div id="cb-notif"></div>
@@ -461,34 +463,25 @@ COMPORTAMENTO:
       if (t) t.remove();
     }
 
-    async function callModel() {
-
-    const url = "https://api.groq.com/openai/v1/chat/completions";
-
-    const messages = [
-        { role: "system", content: PORTFOLIO_CONTEXT },
-        ...chatHistory.map(m => ({
-        role: m.role === "model" ? "assistant" : m.role,
-        content: m.parts[0].text
-        }))
-    ];
-
-    const res = await fetch(url, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`
-        },
+    async function callGemini(modelIndex) {
+      if (modelIndex >= MODELS.length) return null;
+      const model = MODELS[modelIndex];
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-        model: MODEL,
-        messages: messages,
-        temperature: 0.7,
-        max_tokens: 400
+          system_instruction: { parts: [{ text: PORTFOLIO_CONTEXT }] },
+          contents: chatHistory,
+          generationConfig: { maxOutputTokens: 400, temperature: 0.7 }
         })
-    });
-
-    const data = await res.json();
-    return { res, data };
+      });
+      const data = await res.json();
+      if (res.status === 404) {
+        console.warn(`[Chatbot] ${model} non disponibile, provo ${MODELS[modelIndex + 1] || 'nessun altro'}...`);
+        return callGemini(modelIndex + 1);
+      }
+      return { res, data, model };
     }
 
     async function sendMessage() {
@@ -505,11 +498,11 @@ COMPORTAMENTO:
       addTyping();
 
       try {
-        const result = await callModel();
+        const result = await callGemini(0);
         removeTyping();
 
         if (!result) {
-          addMsg('bot', '⚠️ Nessun modello Llama disponibile per questa chiave. Prova a ricrearla su console.groq.com', true);
+          addMsg('bot', '⚠️ Nessun modello Gemini disponibile per questa chiave. Prova a ricrearla su aistudio.google.com', true);
         } else {
           const { res, data, model } = result;
           if (!res.ok) {
@@ -522,14 +515,14 @@ COMPORTAMENTO:
               addMsg('bot', '⚠️ API Key non valida. Rimuovila e inseriscine una nuova.', true);
               apiKey = ''; localStorage.removeItem(STORAGE_KEY); updateKeyUI();
             } else if (errCode === 403 || errStatus === 'PERMISSION_DENIED') {
-              addMsg('bot', '⚠️ Chiave senza permessi. Assicurati di crearla su AI Studio (console.groq.com), non su Google Cloud.', true);
+              addMsg('bot', '⚠️ Chiave senza permessi. Assicurati di crearla su AI Studio (aistudio.google.com), non su Google Cloud.', true);
             } else if (errCode === 429 || errStatus === 'RESOURCE_EXHAUSTED') {
               addMsg('bot', '⏳ Limite gratuito raggiunto. Aspetta 1 minuto e riprova!', true);
             } else {
               addMsg('bot', `⚠️ Errore ${errCode}. Riprova tra poco.`, true);
             }
           } else {
-            const reply = data.choices?.[0]?.message?.content || 'Scusa, non ho capito. Puoi riformulare?';
+            const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Scusa, non ho capito. Puoi riformulare?';
             addMsg('bot', reply);
             chatHistory.push({ role: 'model', parts: [{ text: reply }] });
             if (chatHistory.length > 40) chatHistory = chatHistory.slice(-40);
